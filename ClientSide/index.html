@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>My Website</title>
+    </head>
+    <body ng-app="myApp">
+        <!-- load angular -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
+        <script src="https://code.angularjs.org/1.7.8/angular-route.js"></script>
+        
+
+        <!-- load app -->
+        <script src="app.js"></script>
+
+        <!-- load controllers -->
+        <script src="Register/RegisterController.js"></script>
+        <script src="about/aboutController.js"></script>
+        <script src="login/loginController.js"></script>
+        <script src="POI/POIsController.js"></script>
+        <!-- the website -->
+        <a href = "#">Homepage</a>
+        <h1>Welcome to BeerSheba Advisor!</h1>
+        <div>
+            <a href = "#!Register">Register</a>
+            <a href = "#!about">about</a>
+            <a href = "#!login">login</a>
+            <a href = "#!POI">Points Of Interest</a>
+        </div>
+        
+        <div ng-view></div>
+        
+    </body>
+    </html>

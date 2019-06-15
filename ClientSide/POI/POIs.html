@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>My Website</title>
+</head>
+<body>
+<div ng-app="myApp" ng-init="initAllPOIsList()">
+    <!-- load angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
+
+    <!-- load app -->
+    <script src="../app.js"></script>
+
+    <!-- load controllers -->
+    <script src="POIsController.js"></script>
+
+    <!-- the website -->
+    <h1>All attractions that Beersheba offers you!!</h1>
+    <input type="checkbox" ng-model="all"> Check all<br><br>
+    <input type="checkbox" ng-checked="all">Culture<br>
+    <input type="checkbox" ng-checked="all">Food<br>
+    <input type="checkbox" ng-checked="all">Nightlife<br>
+    <input type="checkbox" ng-checked="all">Shopping<br>
+    <input type="submit" id="submit" value="filter" ng-click="getPOIsByCategories()">
+<!--    <input ng-model=listOfPOIs>-->
+    <div>
+        <ul>
+            <li ng-repeat="x in listOfPOIs">
+                {{ x }}
+            </li>
+        </ul>
+    </div>
+
+
+
+</div>
+</body>
+</html>
