@@ -10,8 +10,10 @@ angular.module("myApp")
             var req = {
                 method: 'POST',
                 url: 'http://localhost:3000/login',
-data: username=uname,
-                // password=password;
+                data: {
+                    username: $scope.uname,
+                    password: $scope.password
+                }
             };
             $http(req)
                 .then(function mySuccess(response) {

@@ -1,37 +1,56 @@
-<html>
-<head>
-    <title>My Website</title>
-</head>
-<body>
-<div ng-app="myApp" ng-init="initAllPOIsList()">
-    <!-- load angular -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
+<h1>All attractions that Beersheba offers you!!</h1>
+<input type="text" name="poiname" ng-model="poiname" placeholder="enter POI name" required >
+<Button type="submit" id="searchpoi" ng-click="search()">search</Button>
+<br>
+<input type="checkbox" ng-model="cat1filter" ng-click="getPoi1()">Culture<br>
+<input type="checkbox" ng-model="cat2filter" ng-click="getPoi2()">Food<br>
+<input type="checkbox" ng-model="cat3filter" ng-click="getPoi3()">Nightlife<br>
+<input type="checkbox" ng-model="cat4filter" ng-click="getPoi4()">Shopping<br>
 
-    <!-- load app -->
-    <script src="../app.js"></script>
+<!--<ng-model> = "requestedPOIname"-->
+<!--<ng-model> = "requestedPOIpicture"-->
+<div ng-show="cat1filter" ng-click="getPoi1()">
+    <h3>Culture</h3>
+    <ul>
+        <li ng-repeat="x in listOfPOIs1">
+            {{ x.POI_ID }}
+            <img ng-src = "{{x.Picture}}" height="100px" width="100px">
 
-    <!-- load controllers -->
-    <script src="POIsController.js"></script>
+        </li>
 
-    <!-- the website -->
-    <h1>All attractions that Beersheba offers you!!</h1>
-    <input type="checkbox" ng-model="all"> Check all<br><br>
-    <input type="checkbox" ng-checked="all">Culture<br>
-    <input type="checkbox" ng-checked="all">Food<br>
-    <input type="checkbox" ng-checked="all">Nightlife<br>
-    <input type="checkbox" ng-checked="all">Shopping<br>
-    <input type="submit" id="submit" value="filter" ng-click="getPOIsByCategories()">
-<!--    <input ng-model=listOfPOIs>-->
-    <div>
-        <ul>
-            <li ng-repeat="x in listOfPOIs">
-                {{ x }}
-            </li>
-        </ul>
-    </div>
+    </ul>
+</div>
+<div ng-show="cat2filter" ng-click="getPoi2()">
+    <h3>Food</h3>
+    <ul>
+        <li ng-repeat="x in listOfPOIs2">
+            {{ x.POI_ID }}
+            <img ng-src = "{{x.Picture}}" height="100px" width="100px">
+        </li>
+    </ul>
+</div>
+<div ng-show="cat3filter" ng-click="getPoi3()">
+    <h3>Nightlife</h3>
+    <ul>
+        <li ng-repeat="x in listOfPOIs3">
+            {{ x.POI_ID }}
+            <img ng-src = "{{x.Picture}}" height="100px" width="100px">
+        </li>
+    </ul>
+</div>
+<div ng-show="cat4filter" ng-click="getPoi4()">
+    <h3>Shopping</h3>
+    <ul>
+        <li ng-repeat="x in listOfPOIs4">
+            {{ x.POI_ID }}
+            <img ng-src = "{{x.Picture}}" height="100px" width="100px">
+        </li>
+    </ul>
+</div>
 
+<div>
 
+    <input ng-model="wantedPOI.POI_ID">
+    <img ng-src = "{{wantedPOI.Picture}}" height="100px" width="100px">
 
 </div>
-</body>
-</html>

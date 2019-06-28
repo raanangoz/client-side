@@ -1,7 +1,6 @@
 // interestPoints controller
 angular.module("myApp")
     .controller("RegisterController", function ($scope,$http,$rootScope) {
-        $scope.stepOneRestore = false;
         $scope.register = function () {
             // var _username = $scope.username;
             // var _password = $scope.password;
@@ -19,7 +18,7 @@ angular.module("myApp")
                     country: $scope.country,
                     email: $scope.email,
                     password: $scope.password,
-                    interests: ["Culture","Food"]
+                    interests: ["Culture","Food"]//TODO not really
                 }
 
             };
