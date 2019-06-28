@@ -1,25 +1,13 @@
-<html>
-<head>
-    <title>My Website</title>
-</head>
-<body ng-app="myApp">
-<!-- load angular -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
-
-<!-- load app -->
-<script src="../app.js"></script>
-
-<!-- load controllers -->
-<script src="RegisterController.js"></script>
 
 <!-- the website -->
 <h1>Register to Beersheba advisor!</h1>
-<div ng-controller="RegisterController as RegisterController">
+<div>
     <form name="RegisterForm" ng-submit="submit()" novalidate>
         <!-- TODO conditions -->
+<!--        TODO CHANGE TO REQUIRED-->
         <input type="text" name="uname" ng-model="uname" placeholder="User name" ><br>
         <input type="text" name="fname" ng-model="fname" placeholder="First name" ><br>
-        <input type="text" name="lname" ng-model="lname" placeholder="Last name" required><br>
+        <input type="text" name="lname" ng-model="lname" placeholder="Last name" ><br>
         <input type="text" name="city" ng-model="city" placeholder="city" ><br>
         <input type="text" name="country" ng-model="country" placeholder="country" ><br>
         <input type="text" name="password" ng-model="password" placeholder="password" ><br>
@@ -31,9 +19,25 @@
     </form>
     <input ng-model="result">
 
+    <ul>
+        <li ng-repeat="x in questionsList">
+            {{x}}
+        </li>
+    </ul>
 
 
+    <div ng-app="" ng-init=showQuestions()>
+        <ul>
 
+            {{q0}}
+            <input type="text" name="a0" ng-model="a0" placeholder="answer" ><br>
+            {{q1}}
+            <input type="text" name="a1" ng-model="a1" placeholder="answer" ><br>{{q0}}
+            {{q2}}
+            <input type="text" name="a2" ng-model="a2" placeholder="answer" ><br>{{q0}}
+            {{q3}}
+            <input type="text" name="a3" ng-model="a3" placeholder="answer" ><br>
+        </ul>
+
+    </div>
 </div>
-</body>
-</html>
