@@ -20,7 +20,6 @@ angular.module("myApp")
                 })
         };
 
-
         $scope.getPoi1 = function () {
             var req = {
                 method: 'GET',
@@ -32,11 +31,8 @@ angular.module("myApp")
             };
             $http(req)
                 .then(function mySuccess(response) {
-
-                    console.log(response.data)
                     $scope.listOfPOIs1 = response.data;
                     $scope.listOfPOIsPICS1 = response.data;
-
                 }, function myError(response) {
                     $scope.myWelcome = response.statusText;
                 })
@@ -50,10 +46,9 @@ angular.module("myApp")
                     categories: "Food"
                 }
             };
-            console.log(req);
             $http(req)
                 .then(function mySuccess(response) {
-                    $scope.listOfPOIs2 = response.data.poi_ids;
+                    $scope.listOfPOIs2 = response.data;
                     $scope.listOfPOIsPICS2 = response.data;
                 }, function myError(response) {
                     $scope.myWelcome = response.statusText;
@@ -71,7 +66,7 @@ angular.module("myApp")
             console.log(req);
             $http(req)
                 .then(function mySuccess(response) {
-                    $scope.listOfPOIs3 = response.data.poi_ids;
+                    $scope.listOfPOIs3 = response.data;
                     $scope.listOfPOIsPICS3 = response.data;
                 }, function myError(response) {
                     $scope.myWelcome = response.statusText;
@@ -89,7 +84,7 @@ angular.module("myApp")
             console.log(req);
             $http(req)
                 .then(function mySuccess(response) {
-                    $scope.listOfPOIs4 = response.data.poi_ids;
+                    $scope.listOfPOIs4 = response.data;
                     $scope.listOfPOIsPICS4 = response.data;
                 }, function myError(response) {
                     $scope.myWelcome = response.statusText;

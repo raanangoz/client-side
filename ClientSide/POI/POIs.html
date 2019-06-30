@@ -13,7 +13,8 @@
     <h3>Culture</h3>
     <ul>
         <li ng-repeat="x in listOfPOIs1">
-            {{ x.POI_ID }}
+            {{ x.name }}
+            <br>
             <img ng-src = "{{x.Picture}}" height="100px" width="100px">
 
         </li>
@@ -24,7 +25,8 @@
     <h3>Food</h3>
     <ul>
         <li ng-repeat="x in listOfPOIs2">
-            {{ x.POI_ID }}
+            {{ x.name }}
+            <br>
             <img ng-src = "{{x.Picture}}" height="100px" width="100px">
         </li>
     </ul>
@@ -33,7 +35,8 @@
     <h3>Nightlife</h3>
     <ul>
         <li ng-repeat="x in listOfPOIs3">
-            {{ x.POI_ID }}
+            {{ x.name }}
+            <br>
             <img ng-src = "{{x.Picture}}" height="100px" width="100px">
         </li>
     </ul>
@@ -42,7 +45,8 @@
     <h3>Shopping</h3>
     <ul>
         <li ng-repeat="x in listOfPOIs4">
-            {{ x.POI_ID }}
+            {{ x.name }}
+            <br>
             <img ng-src = "{{x.Picture}}" height="100px" width="100px">
         </li>
     </ul>
@@ -50,7 +54,8 @@
 
 <div>
 
-    <input ng-model="wantedPOI.POI_ID">
-    <img ng-src = "{{wantedPOI.Picture}}" height="100px" width="100px">
+    <!--<input ng-model="wantedPOI.POI_ID">
+    <img ng-src = "{{wantedPOI.Picture}}" height="100px" width="100px">-->
+
 
 </div>
