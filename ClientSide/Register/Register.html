@@ -9,26 +9,26 @@
         <input type="text" name="fname" ng-model="fname" placeholder="First name" ><br>
         <input type="text" name="lname" ng-model="lname" placeholder="Last name" ><br>
         <input type="text" name="city" ng-model="city" placeholder="city" ><br>
-        <input type="text" name="country" ng-model="country" placeholder="country" ><br>
+        Select a Country:
+        <select id="country" ng-model="country" ng-init=get_countries()>
+            <option ng-repeat="x in listOfCountries" value="">{{ x.country_name }}</option>
+        </select>
+        <br>
         <input type="text" name="password" ng-model="password" placeholder="password" ><br>
         <input type="text" name="email" ng-model="email" placeholder="email" ><br>
         <!-- <span ng-show="RegisterForm.first_name.$error.required">This is required! </span> -->
         <!-- <span ng-show="loginForm.uname.$error.minlength">Minimum length is 4 </span> -->
         <!-- <span ng-show="loginForm.uname.$invalid">Invalid field</span><br><br> -->
-        <div ng-app="" ng-init=showQuestions()>
-            <ul>
 
-                {{q0}}
-                <input type="text" name="a0" ng-model="a0" placeholder="answer" ><br>
-                {{q1}}
-                <input type="text" name="a1" ng-model="a1" placeholder="answer" ><br>
-                {{q2}}
-                <input type="text" name="a2" ng-model="a2" placeholder="answer" ><br>
-                {{q3}}
-                <input type="text" name="a3" ng-model="a3" placeholder="answer" ><br>
-            </ul>
+        Select First Validation Question:
+        <select id="questions" ng-model="questions" ng-init=showQuestions()>
+            <option value="">{{q0.que_description}}
+            <option value="">{{q1.que_description}}
+            <option value="">{{q2.que_description}}
+            <option value="">{{q3.que_description}}
+        </select>
+        <input type="text" name="answers" ng-model="answers" placeholder="answer" ><br>
 
-        </div>
         <input ng-disabled="RegisterForm.$invalid" type="submit" id="submit" value="Submit" ng-click="register()">
     </form>
     <input ng-model="result">

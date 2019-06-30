@@ -52,10 +52,7 @@
     </ul>
 </div>
 
-<div>
-
-    <!--<input ng-model="wantedPOI.POI_ID">
-    <img ng-src = "{{wantedPOI.Picture}}" height="100px" width="100px">-->
-
-
+<div ng-click="search()">
+    <input ng-model="wantedPOI.name" ng-show="wantedPOI.name"><br>
+    <img ng-src = "{{wantedPOI.Picture}}" height="100px" width="100px" ng-show="wantedPOI.name">
 </div>

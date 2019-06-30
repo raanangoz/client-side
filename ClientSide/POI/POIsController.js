@@ -34,7 +34,7 @@ angular.module("myApp")
                     $scope.listOfPOIs1 = response.data;
                     $scope.listOfPOIsPICS1 = response.data;
                 }, function myError(response) {
-                    $scope.myWelcome = response.statusText;
+                    console.log("error");
                 })
         };
         $scope.getPoi2 = function () {
@@ -51,7 +51,7 @@ angular.module("myApp")
                     $scope.listOfPOIs2 = response.data;
                     $scope.listOfPOIsPICS2 = response.data;
                 }, function myError(response) {
-                    $scope.myWelcome = response.statusText;
+                    console.log("error");
                 })
         };
         $scope.getPoi3 = function () {
@@ -69,7 +69,7 @@ angular.module("myApp")
                     $scope.listOfPOIs3 = response.data;
                     $scope.listOfPOIsPICS3 = response.data;
                 }, function myError(response) {
-                    $scope.myWelcome = response.statusText;
+                    console.log("error");
                 })
         };
         $scope.getPoi4 = function () {
@@ -87,7 +87,7 @@ angular.module("myApp")
                     $scope.listOfPOIs4 = response.data;
                     $scope.listOfPOIsPICS4 = response.data;
                 }, function myError(response) {
-                    $scope.myWelcome = response.statusText;
+                    console.log("error");
                 })
         };
 
