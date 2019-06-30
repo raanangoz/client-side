@@ -18,10 +18,6 @@ angular.module("myApp")
         }
 
         $scope.register = function () {
-            // var _username = $scope.username;
-            // var _password = $scope.password;
-
-            // console.log(_username , _password);
 
             var req = {
                 method: 'POST',

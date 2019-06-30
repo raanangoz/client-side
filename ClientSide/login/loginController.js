@@ -18,7 +18,7 @@ angular.module("myApp")
             $http(req)
                 .then(function mySuccess(response) {
                     console.log(response.data);
-                    $scope.result = response.data.token;
+                    $scope.result = response.data;
 
                 }, function myError(response) {
                     // $scope.myWelcome = response.statusText;
