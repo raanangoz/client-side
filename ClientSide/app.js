@@ -1,5 +1,6 @@
 let app = angular.module('myApp', ["ngRoute"]);
-
+let connectedToken = null;
+let connectedUser = null;
 // config routes
 app.config(function($routeProvider)  {
     $routeProvider
@@ -32,6 +33,26 @@ app.config(function($routeProvider)  {
             templateUrl: 'login/login.html',
             controller : 'loginController as loginController'
         })
+        .when('/favorites', {
+            templateUrl: 'favorites/favorites.html',
+            controller : 'favoritesController as favoritesController'
+        })
         // other
         .otherwise({ redirectTo: '/' });
+});
+
+app.run(function($rootScope,$location) {
+    $rootScope.connectedUser = 'guest';
+
+
+    $rootScope.logout = function () {
+        sessionStorage.removeItem('connectedUser');
+        sessionStorage.removeItem('connectedToken');
+        $rootScope.connectedUser = 'guest';
+        console.log($rootScope.connectedUser);
+        $rootScope.connectedToken = null;
+        $rootScope.connected = false;
+
+
+    };
 });

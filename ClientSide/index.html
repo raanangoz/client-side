@@ -16,14 +16,21 @@
         <script src="about/aboutController.js"></script>
         <script src="login/loginController.js"></script>
         <script src="POI/POIsController.js"></script>
+        <script src="favorites/favoritesController.js"></script>
         <!-- the website -->
         <a href = "#">Homepage</a>
-        <h1>Welcome to BeerSheba Advisor!</h1>
-        <div>
-            <a href = "#!Register">Register</a>
+        <p> hello {{connectedUser}}</p>
+
+
+
+        <div class = "navigationBar">
+            <h1>Welcome to BeerSheba Advisor!</h1>
+            <a href = "#!Register" ng-hide = "connected">Register</a>
             <a href = "#!about">about</a>
-            <a href = "#!login">login</a>
+            <a href = "#!login" ng-hide = "connected">login</a>
             <a href = "#!POI">Points Of Interest</a>
+            <a href = "#!favorites" ng-show= "connected"> My Favorites </a>
+            <a href = "#!" ng-show= "connected" ng-click = "logout()"> log out </a>
         </div>
         
         <div ng-view></div>

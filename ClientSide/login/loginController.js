@@ -1,6 +1,6 @@
 // interestPoints controller
 angular.module("myApp")
-    .controller("loginController", function ($scope,$http) {
+    .controller("loginController", function ($scope,$http,$rootScope) {
         $scope.login = function () {
             var uname = $scope.uname;
             var password = $scope.password;
@@ -17,9 +17,13 @@ angular.module("myApp")
             };
             $http(req)
                 .then(function mySuccess(response) {
-                    console.log(response.data);
-                    $scope.result = response.data;
-
+                    // console.log(response.data);
+                    // $scope.result = response.data;
+                    $rootScope.connected = true;
+                    $rootScope.connectedUser = $scope.uname;
+                    sessionStorage.setItem('connectedToken',response.data);
+                    $rootScope.connectedToken = response.data;
+                    sessionStorage.setItem('connectedUser',$scope.uname);
                 }, function myError(response) {
                     // $scope.myWelcome = response.statusText;
                     console.log("error in loginController");
