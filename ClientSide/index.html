@@ -1,41 +1,50 @@
 <html>
-    <head>
-        <title>My Website</title>
-    </head>
-    <body ng-app="myApp">
-        <!-- load angular -->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
-        <script src="https://code.angularjs.org/1.7.8/angular-route.js"></script>
-        
-
-        <!-- load app -->
-        <script src="app.js"></script>
-
-        <!-- load controllers -->
-        <script src="Register/RegisterController.js"></script>
-        <script src="about/aboutController.js"></script>
-        <script src="login/loginController.js"></script>
-        <script src="POI/POIsController.js"></script>
-        <script src="favorites/favoritesController.js"></script>
-        <script src="restorePassword/restorePasswordController.js"></script>
-        <!-- the website -->
-        <a href = "#">Homepage</a>
-        <p> hello {{connectedUser}}</p>
+<head>
+    <title>My Website</title>
+</head>
+<body ng-app="myApp">
+<!-- load angular -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
+<script src="https://code.angularjs.org/1.7.8/angular-route.js"></script>
 
 
+<!-- load app -->
+<script src="app.js"></script>
 
-        <div class = "navigationBar">
-            <h1>Welcome to BeerSheba Advisor!</h1>
-            <a href = "#!Register" ng-hide = "connected">Register</a>
-            <a href = "#!about">about</a>
-            <a href = "#!login" ng-hide = "connected">login</a>
-            <a href = "#!POI">Points Of Interest</a>
-            <a href = "#!favorites" ng-show= "connected"> My Favorites </a>
-            <a href = "#!" ng-show= "connected" ng-click = "logout()"> log out </a>
-            <a href = "#!restorePassword" ng-hide="connected" ng-click ="getValidationQuestions">forgot password?</a>
-        </div>
-        
-        <div ng-view></div>
-        
-    </body>
-    </html>
+<!-- load controllers -->
+<script src="Register/RegisterController.js"></script>
+<script src="about/aboutController.js"></script>
+<script src="login/loginController.js"></script>
+<script src="POI/POIsController.js"></script>
+<script src="favorites/favoritesController.js"></script>
+<script src="restorePassword/restorePasswordController.js"></script>
+<!-- the website -->
+<a href = "#">Homepage</a>
+<p> hello {{connectedUser}}</p>
+
+
+
+<div class = "navigationBar">
+    <h1>Welcome to BeerSheba Advisor!</h1>
+    <a href = "#!Register" ng-hide = "connected">Register</a>
+    <a href = "#!about">about</a>
+    <a href = "#!login" ng-hide = "connected">login</a>
+    <a href = "#!POI">Points Of Interest</a>
+    <a href = "#!favorites" ng-show= "connected"> My Favorites </a>
+    <a href = "#!" ng-show= "connected" ng-click = "logout()"> log out </a>
+    <a href = "#!restorePassword" ng-hide="connected" ng-click ="getValidationQuestions">forgot password?</a><br>
+</div>
+
+<div ng-view></div>
+
+<div class = "random3POIs" ng-hide = "connected" ng-init = "getRandom3pois()">
+    <div ng-repeat="x in result">
+        {{ x.name }}
+        <br>
+        <img ng-src = "{{x.Picture}}" height="100px" width="100px">
+        <br><br>
+    </div>
+</div>
+
+</body>
+</html>

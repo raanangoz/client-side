@@ -4,12 +4,12 @@ let connectedUser = null;
 // config routes
 app.config(function($routeProvider)  {
     $routeProvider
-        //todo 
-        // .when('/', {
-        //     // this is a template
-        //     template: '<h1>This is the default route</h1>'
-        // })
-        // about
+    //todo
+    // .when('/', {
+    //     // this is a template
+    //     template: '<h1>This is the default route</h1>'
+    // })
+    // about
         .when('/about', {
             // this is a template url
             templateUrl: 'about/about.html',
@@ -45,7 +45,7 @@ app.config(function($routeProvider)  {
         .otherwise({ redirectTo: '/' });
 });
 
-app.run(function($rootScope,$location) {
+app.run(function($rootScope,$http) {
     $rootScope.connectedUser = 'guest';
 
 
@@ -59,4 +59,23 @@ app.run(function($rootScope,$location) {
 
 
     };
+    $rootScope.getRandom3pois = function(){
+        console.log("h");
+        var req = {
+            method: 'GET',
+            url: 'http://localhost:3000/get_3_random_popular_pois',
+
+        };
+        $http(req)
+            .then(function mySuccess(response) {
+                $rootScope.result = response.data;
+
+
+            }, function myError(response) {
+
+                console.log(response);
+            })
+
+    }
+
 });
