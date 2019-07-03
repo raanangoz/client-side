@@ -17,6 +17,7 @@
         <script src="login/loginController.js"></script>
         <script src="POI/POIsController.js"></script>
         <script src="favorites/favoritesController.js"></script>
+        <script src="restorePassword/restorePasswordController.js"></script>
         <!-- the website -->
         <a href = "#">Homepage</a>
         <p> hello {{connectedUser}}</p>
@@ -31,6 +32,7 @@
             <a href = "#!POI">Points Of Interest</a>
             <a href = "#!favorites" ng-show= "connected"> My Favorites </a>
             <a href = "#!" ng-show= "connected" ng-click = "logout()"> log out </a>
+            <a href = "#!restorePassword" ng-hide="connected" ng-click ="getValidationQuestions">forgot password?</a>
         </div>
         
         <div ng-view></div>
