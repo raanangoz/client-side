@@ -19,6 +19,7 @@ angular.module("myApp")
                 .then(function mySuccess(response) {
                     // console.log(response.data);
                     // $scope.result = response.data;
+
                     $rootScope.connected = true;
                     $rootScope.connectedUser = $scope.uname;
                     sessionStorage.setItem('connectedToken',response.data);
@@ -26,6 +27,7 @@ angular.module("myApp")
                     sessionStorage.setItem('connectedUser',$scope.uname);
                 }, function myError(response) {
                     // $scope.myWelcome = response.statusText;
+                    window.alert("wrong details");
                     console.log("error in loginController");
                 })
         };

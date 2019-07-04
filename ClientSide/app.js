@@ -45,7 +45,9 @@ app.config(function($routeProvider)  {
         .otherwise({ redirectTo: '/' });
 });
 
-app.run(function($rootScope,$http) {
+
+
+app.run(function($rootScope,$http) {//TODO move to another page and change all to $scope
     $rootScope.connectedUser = 'guest';
 
 
@@ -60,7 +62,6 @@ app.run(function($rootScope,$http) {
 
     };
     $rootScope.getRandom3pois = function(){
-        console.log("h");
         var req = {
             method: 'GET',
             url: 'http://localhost:3000/get_3_random_popular_pois',
@@ -77,5 +78,71 @@ app.run(function($rootScope,$http) {
             })
 
     }
+    $rootScope.homepageConnectedPois = function(){
+        var c0,c1 = null;
+        var req = {
+            method: 'GET',
+            url: 'http://localhost:3000/private/get_userInterests',
+            headers: {
+                'x-auth-token': $rootScope.connectedToken,
+                'content-type': 'application/json'
+            }
+
+        };
+        $http(req)
+            .then(function mySuccess(response) {
+                c0 = response.data[0].Category_name;
+                c1 = response.data[1].Category_name;
+                getCategoryMostPopularPOI(c1);
+                // let second = getCategoryMostPopularPOI(c1);
+
+
+
+
+            }, function myError(response) {
+
+                console.log(response);
+            })
+
+
+
+    }
+    function getCategoryMostPopularPOI(c) {
+
+        if (c != null) {
+
+            var req1 = {
+                method: 'GET',
+                url: 'http://localhost:3000/get_POIs/' + c,
+                params: {
+                    categories: c
+                }
+
+            };
+            $http(req1)
+                .then(function mySuccess(response) {
+                       $rootScope.connectedUserHomepagePOIs= findMaxRank(response.data);
+
+                    }
+                    , function myError(response) {
+                        console.log(response.data)
+                    })
+
+        }
+
+    };
+    function findMaxRank(interestPointsOfCategory){
+        var len = interestPointsOfCategory.length, max = -Infinity;
+        while (len--) {
+            if (interestPointsOfCategory[len].Rank > max) {
+                max = interestPointsOfCategory[len];
+            }
+        }
+        // console.log(max);
+        return max;
+
+    };
+
 
 });
+

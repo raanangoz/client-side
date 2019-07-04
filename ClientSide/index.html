@@ -37,13 +37,21 @@
 
 <div ng-view></div>
 
-<div class = "random3POIs" ng-hide = "connected" ng-init = "getRandom3pois()">
+<div class = "random3POIs" ng-hide = "connected" ng-init = "getRandom3pois()" >
     <div ng-repeat="x in result">
         {{ x.name }}
         <br>
         <img ng-src = "{{x.Picture}}" height="100px" width="100px">
         <br><br>
     </div>
+</div>
+
+<button ng-click= "homepageConnectedPois()"> myHomepage </button>
+<div ng-repeat="x in connectedUserHomepagePOIs">
+    {{ x.name }}
+    <br>
+    <img ng-src = "{{x.Picture}}" height="100px" width="100px">
+    <br><br>
 </div>
 
 </body>
