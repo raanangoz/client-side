@@ -26,6 +26,16 @@ angular.module("myApp")
         }
 
         $scope.register = function () {
+            var array = [];
+            if($scope.interest1 == true)
+                array.push("Culture");
+            if($scope.interest2 == true)
+                array.push("Food");
+            if($scope.interest3 == true)
+                array.push("Nightlife");
+            if($scope.interest4 == true)
+                array.push("Shopping");
+
 
             var Country = document.getElementById("country");
             Country = selected_country(Country);
@@ -42,7 +52,7 @@ angular.module("myApp")
                     country: Country,
                     email: $scope.email,
                     password: $scope.password,
-                    interests: ["Culture","Food"],//TODO not really
+                    interests: array,//TODO not really
                     questions: [q0,q1,q2,q3],//TODO
                     answers: [$scope.answers]//TODO
                 }
@@ -51,7 +61,7 @@ angular.module("myApp")
                 .then(function mySuccess(response) {
                     console.log(response.data);
                 }, function myError(response) {
-                    console.log(response.data);
+                    window.alert(response.data);
                 })
         };
 

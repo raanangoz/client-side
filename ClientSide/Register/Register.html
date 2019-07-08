@@ -5,6 +5,11 @@
     <form name="RegisterForm" ng-submit="submit()" novalidate>
         <!-- TODO conditions -->
         <!--        TODO CHANGE TO REQUIRED-->
+        <input type="checkbox" name = "interest1" ng-model="interest1">Culture<br>
+        <input type="checkbox" name = "interest2" ng-model="interest2">Food<br>
+        <input type="checkbox" name = "interest3" ng-model="interest3">Nightlife<br>
+        <input type="checkbox" name = "interest4" ng-model="interest4">Shopping<br>
+
         <input type="text" name="uname" ng-model="uname" placeholder="User name" ><br>
         <input type="text" name="fname" ng-model="fname" placeholder="First name" ><br>
         <input type="text" name="lname" ng-model="lname" placeholder="Last name" ><br>
@@ -28,6 +33,7 @@
             <option value="">{{q3.que_description}}
         </select>
         <input type="text" name="answers" ng-model="answers" placeholder="answer" >
+
 
 
 

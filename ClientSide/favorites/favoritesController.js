@@ -38,7 +38,6 @@ angular.module("myApp")
             };
             $http(req)
                 .then(function mySuccess(response) {
-                    console.log(response.data);
                     $scope.result = response.data;
 
 
@@ -79,6 +78,7 @@ angular.module("myApp")
                         console.log(entry.Rank);
                     });
                 }
+                $scope.result = array;
             }
             else{
                 window.alert("Nothing to sort");
