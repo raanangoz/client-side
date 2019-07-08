@@ -42,9 +42,9 @@ angular.module("myApp")
                     country: Country,
                     email: $scope.email,
                     password: $scope.password,
-                    interests: ["Culture","Food"],//TODO not really
+                    interests: [$scope.cat1,$scope.cat2,$scope.cat3,$scope.cat4],//TODO not really
                     questions: [q0,q1,q2,q3],//TODO
-                    answers: [$scope.answers]//TODO
+                    answers: [$scope.answers, $scope.answers]//TODO
                 }
             };
             $http(req)
@@ -83,9 +83,6 @@ angular.module("myApp")
             var req = {
                 method: 'Get',
                 url: 'http://localhost:3000/get_validation_questions'
-                //headers: {
-                //   'content-type': 'application/json'
-                // },
             };
             $http(req)
                 .then(function mySuccess(response) {
@@ -107,5 +104,88 @@ angular.module("myApp")
                 }
             }
         }
+
+        function get_category() {
+            var req = {
+                method: 'Get',
+                url: 'http://localhost:3000/get_categories'
+            };
+            $http(req)
+                .then(function mySuccess(response) {
+                    $scope.listOfCatagories = response.data;
+                }, function myError(response) {
+                    console.log(response);
+                })
+        };
+        $scope.getPoi1 = function () {
+            var req = {
+                method: 'GET',
+                url: 'http://localhost:3000/get_POIs/Culture',
+
+                params: {
+                    'categories': "Culture"
+                }
+            };
+            $http(req)
+                .then(function mySuccess(response) {
+                    $scope.listOfPOIs1 = response.data;
+                    $scope.listOfPOIsPICS1 = response.data;
+                }, function myError(response) {
+                    console.log("error");
+                })
+        };
+        $scope.getPoi2 = function () {
+            var req = {
+                method: 'GET',
+                url: 'http://localhost:3000/get_POIs/Food',
+
+                data: {
+                    categories: "Food"
+                }
+            };
+            $http(req)
+                .then(function mySuccess(response) {
+                    $scope.listOfPOIs2 = response.data;
+                    $scope.listOfPOIsPICS2 = response.data;
+                }, function myError(response) {
+                    console.log("error");
+                })
+        };
+        $scope.getPoi3 = function () {
+            var req = {
+                method: 'GET',
+                url: 'http://localhost:3000/get_POIs/Nightlife',
+
+                data: {
+                    categories: "Nightlife"
+                }
+            };
+            console.log(req);
+            $http(req)
+                .then(function mySuccess(response) {
+                    $scope.listOfPOIs3 = response.data;
+                    $scope.listOfPOIsPICS3 = response.data;
+                }, function myError(response) {
+                    console.log("error");
+                })
+        };
+        $scope.getPoi4 = function () {
+            var req = {
+                method: 'GET',
+                url: 'http://localhost:3000/get_POIs/Shopping',
+
+                data: {
+                    categories: "Shopping"
+                }
+            };
+            console.log(req);
+            $http(req)
+                .then(function mySuccess(response) {
+                    $scope.listOfPOIs4 = response.data;
+                    $scope.listOfPOIsPICS4 = response.data;
+                }, function myError(response) {
+                    console.log("error");
+                })
+        };
     });
 

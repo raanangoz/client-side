@@ -28,8 +28,12 @@
             <option value="">{{q3.que_description}}
         </select>
         <input type="text" name="answers" ng-model="answers" placeholder="answer" >
-
-
+        <br>
+        <p>Choose Two Of Your Favorite Catagories:</p>
+        <input type="checkbox" ng-model="cat1" ng-click="getPoi1()">Culture<br>
+        <input type="checkbox" ng-model="cat2" ng-click="getPoi2()">Food<br>
+        <input type="checkbox" ng-model="cat3" ng-click="getPoi3()">Nightlife<br>
+        <input type="checkbox" ng-model="cat4" ng-click="getPoi4()">Shopping<br>
 
         <input ng-disabled="RegisterForm.$invalid" type="submit" id="submit" value="Submit" ng-click="register()">
     </form>
