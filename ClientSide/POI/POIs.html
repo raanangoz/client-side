@@ -2,20 +2,19 @@
 <input type="text" name="poiname" ng-model="poiname" placeholder="enter POI name" required >
 <Button type="submit" id="searchpoi" ng-click="search()">search</Button>
 <br>
-<input type="checkbox" ng-model="cat1filter" ng-click="getPoi1()">Culture<br>
+<input type="checkbox" ng-model="cat1filter" ng-click="getPoi1()" >Culture<br>
 <input type="checkbox" ng-model="cat2filter" ng-click="getPoi2()">Food<br>
 <input type="checkbox" ng-model="cat3filter" ng-click="getPoi3()">Nightlife<br>
 <input type="checkbox" ng-model="cat4filter" ng-click="getPoi4()">Shopping<br>
-
+<input type="submit" id="sort" value="sort" ng-click="sort()">
 <!--<ng-model> = "requestedPOIname"-->
 <!--<ng-model> = "requestedPOIpicture"-->
-<div ng-show="cat1filter" ng-click="getPoi1()">
+<div ng-show="cat1filter" ng-click="getPoi1()" >
     <h3>Culture</h3>
     <ul>
         <li ng-repeat="x in listOfPOIs1">
-            {{ x.name }}
-            <br>
-            <img ng-src = "{{x.Picture}}" height="100px" width="100px">
+            <img src="{{x.Picture}}" ng-click="showDetails(x)" height="100px" width="100px">
+            <p class="name" ng-click="showDetails(x)">{{x.name}}</p>
 
         </li>
 
@@ -25,9 +24,8 @@
     <h3>Food</h3>
     <ul>
         <li ng-repeat="x in listOfPOIs2">
-            {{ x.name }}
-            <br>
-            <img ng-src = "{{x.Picture}}" height="100px" width="100px">
+            <img src="{{x.Picture}}" ng-click="showDetails(x)" height="100px" width="100px">
+            <p class="name" ng-click="showDetails(x)">{{x.name}}</p>
         </li>
     </ul>
 </div>
@@ -35,9 +33,8 @@
     <h3>Nightlife</h3>
     <ul>
         <li ng-repeat="x in listOfPOIs3">
-            {{ x.name }}
-            <br>
-            <img ng-src = "{{x.Picture}}" height="100px" width="100px">
+            <img src="{{x.Picture}}" ng-click="showDetails(x)" height="100px" width="100px">
+            <p class="name" ng-click="showDetails(x)">{{x.name}}</p>
         </li>
     </ul>
 </div>
@@ -45,9 +42,9 @@
     <h3>Shopping</h3>
     <ul>
         <li ng-repeat="x in listOfPOIs4">
-            {{ x.name }}
-            <br>
-            <img ng-src = "{{x.Picture}}" height="100px" width="100px">
+            <img src="{{x.Picture}}" ng-click="showDetails(x)" height="100px" width="100px">
+            <p class="name" ng-click="showDetails(x)">{{x.name}}</p>
+            <img src="star.jpg" ng-click="addToFav(x)" height="100px" width="100px">
         </li>
     </ul>
 </div>
@@ -56,3 +53,6 @@
     <input ng-model="wantedPOI.name" ng-show="wantedPOI.name"><br>
     <img ng-src = "{{wantedPOI.Picture}}" height="100px" width="100px" ng-show="wantedPOI.name">
 </div>
+
+
+

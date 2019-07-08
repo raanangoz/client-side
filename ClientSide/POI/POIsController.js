@@ -14,6 +14,8 @@ angular.module("myApp")
             };
             $http(req)
                 .then(function mySuccess(response) {
+                    if(response.data[0]==null)
+                        window.alert("no such a point of interest exists in Beersheba.")
                     $scope.wantedPOI = response.data[0];
                 }, function myError(response) {
 
@@ -89,6 +91,52 @@ angular.module("myApp")
                 }, function myError(response) {
                     console.log("error");
                 })
+        };
+
+
+
+        $scope.sort = function () {
+            if($scope.result!=null) {//TODO CHECK IF WHEN LENGTH 0 ITS NULL
+                let array = $scope.result;
+                var method = document.getElementById("sortBy");
+                method = selected_method(method);
+
+                if(method == 'Category') {
+                    console.log("original order:");
+                    array.forEach(function (entry) {
+                        console.log(entry.Category_name);
+                    });
+
+
+                    array = sortFavByCat(array);
+                    console.log("after sort order:");
+                    array.forEach(function (entry) {
+                        console.log(entry.Category_name);
+                    });
+                }else if(method == 'Rating') {
+                    console.log("original order:");
+                    array.forEach(function (entry) {
+                        console.log(entry.Rank);
+                    });
+
+
+                    array = sortFavByRating(array);
+                    console.log("after sort order:");
+                    array.forEach(function (entry) {
+                        console.log(entry.Rank);
+                    });
+                }
+                $scope.result = array;
+            }
+            else{
+                window.alert("Nothing to sort");
+            }
+        }
+
+
+        $scope.showDetails= function (x) {
+            window.alert(x.name);
+
         };
 
     });

@@ -122,8 +122,8 @@ app.run(function($rootScope,$http) {//TODO move to another page and change all t
             .then(function mySuccess(response) {
                 c0 = response.data[0].Category_name;
                 c1 = response.data[1].Category_name;
+                getCategoryMostPopularPOI(c0);
                 getCategoryMostPopularPOI(c1);
-                // let second = getCategoryMostPopularPOI(c1);
 
 
 
@@ -136,7 +136,7 @@ app.run(function($rootScope,$http) {//TODO move to another page and change all t
 
 
     }
-    function getCategoryMostPopularPOI(c) {
+     $rootScope.getCategoryMostPopularPOI= function(c) {
 
         if (c != null) {
 
@@ -150,6 +150,7 @@ app.run(function($rootScope,$http) {//TODO move to another page and change all t
             };
             $http(req1)
                 .then(function mySuccess(response) {
+                    console.log(response);
                         $rootScope.connectedUserHomepagePOIs= findMaxRank(response.data);
 
                     }
@@ -167,7 +168,7 @@ app.run(function($rootScope,$http) {//TODO move to another page and change all t
                 max = interestPointsOfCategory[len];
             }
         }
-        // console.log(max);
+        console.log(max);
         return max;
 
     };
