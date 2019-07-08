@@ -26,9 +26,7 @@ angular.module("myApp")
         }
 
         $scope.register = function () {
-            var Questions = document.getElementById("questions");
-            var Questions1 = selected_question(Questions)
-            // console.log(Questions1);
+
             var array = [];
             if($scope.interest1 == true)
                 array.push("Culture");
@@ -42,7 +40,10 @@ angular.module("myApp")
 
             var Country = document.getElementById("country");
             Country = selected_country(Country);
-
+            var Questions = document.getElementById("questions");
+            var Questions2 = document.getElementById("questions2");
+            Questions = selected_question(Questions);
+            Questions2 = selected_question(Questions2);
             var req = {
                 method: 'POST',
                 url: 'http://localhost:3000/register',
@@ -55,8 +56,8 @@ angular.module("myApp")
                     email: $scope.email,
                     password: $scope.password,
                     interests: array,//TODO not really
-                    questions: [q0,q1,q2,q3],//TODO
-                    answers: [$scope.answers]//TODO
+                    questions: [Questions,Questions2],//TODO
+                    answers: [$scope.answers1,$scope.answers2]//TODO
                 }
             };
             $http(req)
@@ -101,26 +102,18 @@ angular.module("myApp")
             };
             $http(req)
                 .then(function mySuccess(response) {
-                    //console.log(req);
                     $scope.listOfQuestions = response.data;
-                    //console.log(listOfCountries);
-                    //console.log(response.data);
-
                 }, function myError(response) {
                     console.log(response);
                 })
         };
 
-
         function selected_question(Questions) {
-            let questions = [];
             for (let i = 0; i < Questions.length; i++) {
                 if (Questions[i].selected == true) {
-                    questions.push(Questions[i]);
-
+                    return Questions[i].label;
                 }
             }
-            return questions;
         }
     });
 
