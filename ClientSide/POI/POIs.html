@@ -6,13 +6,70 @@
 <input type="checkbox" ng-model="cat2filter" ng-click="getPoi2()">Food<br>
 <input type="checkbox" ng-model="cat3filter" ng-click="getPoi3()">Nightlife<br>
 <input type="checkbox" ng-model="cat4filter" ng-click="getPoi4()">Shopping<br>
-<input type="submit" id="sort" value="sort" ng-click="sort()">
+
+<div ng-hide="cat1filter">
+    <div ng-hide="cat2filter">
+        <div ng-hide="cat3filter">
+            <div ng-hide="cat4filter">
+
+                <div ng-init="getPoi1()">
+
+
+                    <h3>Culture</h3>
+                    <ul>
+                        <li ng-repeat="x in listOfPOIs1">
+                            {{ x.name }}
+                            <br>
+                            <img ng-src = "{{x.Picture}}" height="100px" width="100px">
+
+                        </li>
+
+                    </ul>
+
+                </div>
+                <div  ng-init="getPoi2()">
+                    <h3>Food</h3>
+                    <ul>
+                        <li ng-repeat="x in listOfPOIs2">
+                            {{ x.name }}
+                            <br>
+                            <img ng-src = "{{x.Picture}}" height="100px" width="100px">
+                        </li>
+                    </ul>
+                </div>
+                <div  ng-init="getPoi3()">
+                    <h3>Nightlife</h3>
+                    <ul>
+                        <li ng-repeat="x in listOfPOIs3">
+                            {{ x.name }}
+                            <br>
+                            <img ng-src = "{{x.Picture}}" height="100px" width="100px">
+                        </li>
+                    </ul>
+                </div>
+                <div  ng-init="getPoi4()">
+                    <h3>Shopping</h3>
+                    <ul>
+                        <li ng-repeat="x in listOfPOIs4">
+                            {{ x.name }}
+                            <br>
+                            <img ng-src = "{{x.Picture}}" height="100px" width="100px">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!--<ng-model> = "requestedPOIname"-->
 <!--<ng-model> = "requestedPOIpicture"-->
 <div ng-show="cat1filter" ng-click="getPoi1()" >
     <h3>Culture</h3>
     <ul>
         <li ng-repeat="x in listOfPOIs1">
+            <img src="star.jpg" ng-show = "connected" ng-click="addToFav(x)" height="10px" width="10px">
             <img src="{{x.Picture}}" ng-click="showDetails(x)" height="100px" width="100px">
             <p class="name" ng-click="showDetails(x)">{{x.name}}</p>
 
@@ -24,6 +81,8 @@
     <h3>Food</h3>
     <ul>
         <li ng-repeat="x in listOfPOIs2">
+            <!--            <img src ="graystar.jpg" ng-show =iamfavorite(x)-->
+            <img src="star.jpg" ng-show = "connected" ng-click="addToFav(x)" height="10px" width="10px">
             <img src="{{x.Picture}}" ng-click="showDetails(x)" height="100px" width="100px">
             <p class="name" ng-click="showDetails(x)">{{x.name}}</p>
         </li>
@@ -33,6 +92,7 @@
     <h3>Nightlife</h3>
     <ul>
         <li ng-repeat="x in listOfPOIs3">
+            <img src="star.jpg" ng-click="addToFav(x)" height="10px" width="10px">
             <img src="{{x.Picture}}" ng-click="showDetails(x)" height="100px" width="100px">
             <p class="name" ng-click="showDetails(x)">{{x.name}}</p>
         </li>
@@ -42,9 +102,10 @@
     <h3>Shopping</h3>
     <ul>
         <li ng-repeat="x in listOfPOIs4">
+            <img src="star.jpg" ng-click="addToFav(x)" height="10px" width="10px">
             <img src="{{x.Picture}}" ng-click="showDetails(x)" height="100px" width="100px">
             <p class="name" ng-click="showDetails(x)">{{x.name}}</p>
-            <img src="star.jpg" ng-click="addToFav(x)" height="100px" width="100px">
+
         </li>
     </ul>
 </div>

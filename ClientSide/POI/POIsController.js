@@ -1,6 +1,6 @@
 // interestPoints controller
 angular.module("myApp")
-    .controller("POIsController", function ($scope,$http) {
+    .controller("POIsController", function ($scope,$http,$rootScope) {
         $scope.search = function () {
 
             var poiname = $scope.poiname
@@ -65,7 +65,6 @@ angular.module("myApp")
                     categories: "Nightlife"
                 }
             };
-            console.log(req);
             $http(req)
                 .then(function mySuccess(response) {
                     $scope.listOfPOIs3 = response.data;
@@ -83,7 +82,6 @@ angular.module("myApp")
                     categories: "Shopping"
                 }
             };
-            console.log(req);
             $http(req)
                 .then(function mySuccess(response) {
                     $scope.listOfPOIs4 = response.data;
@@ -102,28 +100,28 @@ angular.module("myApp")
                 method = selected_method(method);
 
                 if(method == 'Category') {
-                    console.log("original order:");
+                    // console.log("original order:");
                     array.forEach(function (entry) {
-                        console.log(entry.Category_name);
+                        // console.log(entry.Category_name);
                     });
 
 
                     array = sortFavByCat(array);
-                    console.log("after sort order:");
+                    // console.log("after sort order:");
                     array.forEach(function (entry) {
-                        console.log(entry.Category_name);
+                        // console.log(entry.Category_name);
                     });
                 }else if(method == 'Rating') {
-                    console.log("original order:");
+                    // console.log("original order:");
                     array.forEach(function (entry) {
-                        console.log(entry.Rank);
+                        // console.log(entry.Rank);
                     });
 
 
                     array = sortFavByRating(array);
-                    console.log("after sort order:");
+                    // console.log("after sort order:");
                     array.forEach(function (entry) {
-                        console.log(entry.Rank);
+                        // console.log(entry.Rank);
                     });
                 }
                 $scope.result = array;
@@ -138,5 +136,25 @@ angular.module("myApp")
             window.alert(x.name);
 
         };
+        $scope.addToFav = function(x){
+            var req = {
+                method: 'POST',
+                url: 'http://localhost:3000/private/save_user_favorites',
+                data: {
+                    poi_id: x.POI_ID,
+                    poi_name: x.name
+                },
+                headers: {
+                    'x-auth-token': $rootScope.connectedToken,
+                    'content-type': 'application/json'
+                }
+            };
+            $http(req)
+                .then(function mySuccess(response) {
+                    window.alert("success");
+                }, function myError(response) {
+                    console.log("error");
+                })
+        }
 
     });
