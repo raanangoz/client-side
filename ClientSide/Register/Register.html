@@ -27,13 +27,24 @@
             <option value="">{{q2.que_description}}
             <option value="">{{q3.que_description}}
         </select>
-        <input type="text" name="answers" ng-model="answers" placeholder="answer" >
+        <input type="text" name="answers1" ng-model="answers1" placeholder="answer" >
+        <br>
+        Select Second Validation Question:
+        <select id="questions2" ng-model="questions2" ng-init=showQuestions()>
+            <option value="">{{q0.que_description}}
+            <option value="">{{q1.que_description}}
+            <option value="">{{q2.que_description}}
+            <option value="">{{q3.que_description}}
+        </select>
+        <input type="text" name="answers2" ng-model="answers2" placeholder="answer" >
+
         <br>
         <p>Choose Two Of Your Favorite Catagories:</p>
-        <input type="checkbox" ng-model="cat1" ng-click="getPoi1()">Culture<br>
-        <input type="checkbox" ng-model="cat2" ng-click="getPoi2()">Food<br>
-        <input type="checkbox" ng-model="cat3" ng-click="getPoi3()">Nightlife<br>
-        <input type="checkbox" ng-model="cat4" ng-click="getPoi4()">Shopping<br>
+        <input type="checkbox" name = "interest1" ng-model="interest1">Culture<br>
+        <input type="checkbox" name = "interest2" ng-model="interest2">Food<br>
+        <input type="checkbox" name = "interest3" ng-model="interest3">Nightlife<br>
+        <input type="checkbox" name = "interest4" ng-model="interest4">Shopping<br>
+
 
         <input ng-disabled="RegisterForm.$invalid" type="submit" id="submit" value="Submit" ng-click="register()">
     </form>

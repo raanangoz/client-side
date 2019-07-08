@@ -69,7 +69,36 @@ app.run(function($rootScope,$http) {//TODO move to another page and change all t
         };
         $http(req)
             .then(function mySuccess(response) {
-                $rootScope.result = response.data;
+                var items = null;
+                if(response.data.length >= 3) {
+                    var itemx = null;
+                    var itemy = null;
+                    var itemz = null;
+                    let x = Math.floor(Math.random() * response.data.length);
+                    itemx = response.data[x];
+                    let y=-1;
+                    let z=-1;
+                    while(true){
+                        y = Math.floor(Math.random() * response.data.length);
+                        if (y!==x) {
+                            itemy = response.data[y];
+                            break;
+                        }
+                    }
+                    while(true){
+                        z = Math.floor(Math.random() * response.data.length);
+                        if (z!==x && z!==y) {
+                            itemz = response.data[z];
+                            break;
+                        }
+                    }
+                    items = Array (itemx,itemy,itemz);
+                }
+                else{
+
+                }
+
+                $rootScope.result = items;
 
 
             }, function myError(response) {
@@ -121,7 +150,7 @@ app.run(function($rootScope,$http) {//TODO move to another page and change all t
             };
             $http(req1)
                 .then(function mySuccess(response) {
-                       $rootScope.connectedUserHomepagePOIs= findMaxRank(response.data);
+                        $rootScope.connectedUserHomepagePOIs= findMaxRank(response.data);
 
                     }
                     , function myError(response) {
