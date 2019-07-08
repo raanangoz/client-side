@@ -26,6 +26,9 @@ angular.module("myApp")
         }
 
         $scope.register = function () {
+            var Questions = document.getElementById("questions");
+            var Questions1 = selected_question(Questions)
+            // console.log(Questions1);
             var array = [];
             if($scope.interest1 == true)
                 array.push("Culture");
@@ -39,8 +42,7 @@ angular.module("myApp")
 
             var Country = document.getElementById("country");
             Country = selected_country(Country);
-            //var Questions = document.getElementById("questions");
-            //Questions = selected_question(Questions);
+
             var req = {
                 method: 'POST',
                 url: 'http://localhost:3000/register',
@@ -111,11 +113,14 @@ angular.module("myApp")
 
 
         function selected_question(Questions) {
+            let questions = [];
             for (let i = 0; i < Questions.length; i++) {
                 if (Questions[i].selected == true) {
-                    return i; //Questions[i].label;
+                    questions.push(Questions[i]);
+
                 }
             }
+            return questions;
         }
     });
 
