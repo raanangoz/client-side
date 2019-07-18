@@ -7,7 +7,7 @@ angular.module("myApp")
 
             var req = {
                 method: 'GET',
-                url: 'http://localhost:3000/get_poi/'+poiname,
+                url: 'http://localhost:3000/search_poi/'+poiname,
                 params: {
                     'poi_name': poiname
                 }

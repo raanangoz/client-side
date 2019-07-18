@@ -1,6 +1,11 @@
 <h1>your saved points of interest!</h1>
-<div class = "counter" ng-init = showFavoritesNumber()>
-move number of favorites to top: {{counter}}
+<div class = "counter" ng-init = showFavoritesNumber() ng-show = "counter>0">
+You saved {{counter}} points of interest!
+</div>
+<div ng-show = "counter==0">
+    You have not saved any points of interest yet! please click <a href = "#!POI">here</a> to visit our special places!
+
+
 </div>
 
 <div class = "favorites" ng-init = "showAllFavorites()">

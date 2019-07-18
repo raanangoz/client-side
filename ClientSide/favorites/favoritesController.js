@@ -5,7 +5,7 @@ angular.module("myApp")
 
             var req = {
                 method: 'GET',
-                url: 'http://localhost:3000/private/get_amount_of_favorites',
+                url: 'http://localhost:3000/private/get_favoritePOIs',
                 headers: {
                     'x-auth-token': $rootScope.connectedToken,
                     'content-type': 'application/json'
@@ -16,9 +16,13 @@ angular.module("myApp")
             $http(req)
                 .then(function mySuccess(response) {
 
+                    console.log(response.data.length);
+
                     // $scope.result = response.data;
 
-                    $scope.counter = response.data[0].amount;
+                    $scope.counter = response.data.length;
+
+
 
                 }, function myError(response) {
                     // $scope.myWelcome = response.statusText;

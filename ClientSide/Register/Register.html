@@ -9,7 +9,7 @@
         <input type="text" name="fname" ng-model="fname" placeholder="First name" ><br>
         <input type="text" name="lname" ng-model="lname" placeholder="Last name" ><br>
         <input type="text" name="city" ng-model="city" placeholder="city" ><br>
-        Select a Country:
+        Country:
         <select id="country" ng-model="country" ng-init=get_countries()>
             <option ng-repeat="x in listOfCountries" value="">{{ x.country_name }}</option>
         </select>
@@ -48,7 +48,6 @@
 
         <input ng-disabled="RegisterForm.$invalid" type="submit" id="submit" value="Submit" ng-click="register()">
     </form>
-    <input ng-model="result">
 
 
 </div>
