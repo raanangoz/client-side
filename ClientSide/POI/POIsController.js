@@ -133,7 +133,23 @@ angular.module("myApp")
 
 
         $scope.showDetails= function (x) {
-            window.alert(x.name);
+
+
+
+            var req = {
+                method: 'PUT',
+                url: 'http://localhost:3000/update_poi_views/'+x.POI_ID,
+                params: {
+                    'POI_ID': x.POI_ID
+                }
+            };
+            $http(req)
+                .then(function mySuccess(response) {
+
+                }, function myError(response) {
+
+                })
+            window.alert("name: " + x.name +"\n" + "description: " + x.Description +"\n" + "views: " + x.view_amount +"\n" + "category: " + x.Category_name + "\n" + "rating: "+x.Rank +"\n");
 
         };
         $scope.addToFav = function(x){

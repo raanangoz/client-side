@@ -21,6 +21,7 @@
                             {{ x.name }}
                             <br>
                             <img ng-src = "{{x.Picture}}" height="100px" width="100px">
+                            <p class="name" ng-click="showDetails(x)">{{x.name}}</p>
 
                         </li>
 
@@ -34,6 +35,7 @@
                             {{ x.name }}
                             <br>
                             <img ng-src = "{{x.Picture}}" height="100px" width="100px">
+                            <p class="name" ng-click="showDetails(x)">{{x.name}}</p>
                         </li>
                     </ul>
                 </div>
@@ -44,6 +46,7 @@
                             {{ x.name }}
                             <br>
                             <img ng-src = "{{x.Picture}}" height="100px" width="100px">
+                            <p class="name" ng-click="showDetails(x)">{{x.name}}</p>
                         </li>
                     </ul>
                 </div>
@@ -54,6 +57,7 @@
                             {{ x.name }}
                             <br>
                             <img ng-src = "{{x.Picture}}" height="100px" width="100px">
+                            <p class="name" ng-click="showDetails(x)">{{x.name}}</p>
                         </li>
                     </ul>
                 </div>
@@ -113,6 +117,7 @@
 <div ng-click="search()">
     <input ng-model="wantedPOI.name" ng-show="wantedPOI.name"><br>
     <img ng-src = "{{wantedPOI.Picture}}" height="100px" width="100px" ng-show="wantedPOI.name">
+    <p class="name" ng-click="showDetails(x)">{{x.name}}</p>
 </div>
 
 

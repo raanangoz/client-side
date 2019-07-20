@@ -62,6 +62,7 @@ angular.module("myApp")
             };
             $http(req)
                 .then(function mySuccess(response) {
+                    console.log(response.data);
                     window.alert("Welcome, "+$scope.fname)
                 }, function myError(response) {
                     window.alert(response.data);

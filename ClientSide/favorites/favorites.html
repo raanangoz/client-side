@@ -14,6 +14,7 @@ You saved {{counter}} points of interest!
             {{ x.name }}
             <br>
             <img ng-src = "{{x.Picture}}" height="100px" width="100px">
+            <p class="name" ng-click="showDetails(x)">{{x.name}}</p>
 
         </li>
 

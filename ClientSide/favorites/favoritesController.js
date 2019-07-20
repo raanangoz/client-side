@@ -124,4 +124,8 @@ angular.module("myApp")
             return array;
 
         }
+        $scope.showDetails= function (x) {
+            window.alert("name: " + x.name +"\n" + "description: " + x.Description +"\n" + "views: " + x.view_amount +"\n" + "category: " + x.Category_name + "\n" + "rating: "+x.Rank +"\n");
+
+        };
     })
